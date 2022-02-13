@@ -27,10 +27,15 @@ a {
   --secondary-social-color: #ffffff;
   --background-social-color: #2196f3;
   --footer-social-color: rgba(255, 255, 255, 0.1);
+  --feature-bg-color: rgba(47, 48, 58, 0.8);
+  --overlay-modal-color: rgba(0, 0, 0, 0.2);
+  --project-bg-color: rgba(33, 150, 243, 0.9);
+  --close-icon-color: #000000;
 }
 
 .page {
   margin: 0;
+  padding-top: 80px;
   font-family: Roboto, sans-serif;
   color: var(--primary-text-color);
 }
@@ -68,6 +73,16 @@ button {
 /* CSS для imdex.html */
 
 /* Шапка сайта */
+
+.page-header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  min-height: 80px;
+  background-color: var(--primary-bg-color);
+  z-index: 1;
+}
 
 .main-nav {
   display: flex;
@@ -156,22 +171,10 @@ button {
   margin-right: 10px;
 }
 
-/* .contacts .contact:hover, */
-/* .contacts .contact:focus { */
-/* color: var(--accent-color); */
-/* } */
-
-.contact:hover,
-.contact:focus {
+.contacts .contact:hover,
+.contacts .contact:focus {
   color: var(--accent-color);
 }
-
-/* .contact:hover .email-icon, */
-/* .contact:hover .phone-icon, */
-/* .contact:focus .email-icon, */
-/* .contact:focus .phone-icon { */
-/* fill: var(--accent-color); */
-/* } */
 
 .contact:hover .email-icon,
 .contact:hover .phone-icon,
@@ -329,6 +332,35 @@ button {
   justify-content: space-between;
 }
 
+.product-apps {
+  position: relative;
+}
+
+.product-apps::before {
+  position: absolute;
+  display: inline;
+  content: "";
+  width: 370px;
+  height: 70px;
+  bottom: 1%;
+  background-color: var(--feature-bg-color);
+}
+
+.product-apps-text {
+  position: absolute;
+  bottom: -8%;
+  right: 15%;
+  width: 270px;
+  height: 70px;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--text-title-color);
+}
+
 /* Наша команда */
 
 .user {
@@ -420,7 +452,8 @@ button {
   background-color: var(--background-social-color);
 }
 
-.social-link:hover .social-icon {
+.social-link:hover .social-icon,
+.social-link:focus .social-icon {
   fill: var(--secondary-social-color);
 }
 
@@ -650,6 +683,7 @@ button {
 }
 
 .project-item {
+  position: relative;
   width: 370px;
   border: 1px solid var(--box-project-color);
   margin-right: 30px;
@@ -675,6 +709,50 @@ button {
   margin-bottom: 0;
 }
 
+.project-solution {
+  position: relative;
+  width: 370px;
+  height: auto;
+}
+
+.project-solution:hover::before,
+.project-text:hover {
+  opacity: 1;
+}
+
+.product-solition {
+  position: relative;
+}
+
+.project-solution::before {
+  position: absolute;
+  display: inline-block;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--project-bg-color);
+
+  opacity: 0;
+}
+
+.project-text {
+  position: absolute;
+  display: inline-block;
+  top: 63px;
+  left: 24px;
+  right: 24px;
+  bottom: 63px;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 1.56;
+  letter-spacing: 0.03em;
+  color: var(--text-title-color);
+
+  opacity: 0;
+}
+
 .caption {
   margin-bottom: 9px;
 
@@ -694,9 +772,74 @@ button {
   color: var(--secondory-text-color);
 }
 
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--overlay-modal-color);
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-height: 581px;
+  min-width: 528px;
+  padding: 8px;
+  border-radius: 4px;
+  background-color: var(--primary-bg-color);
+}
+
+.close-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  /* top: 100%; */
+  /* left: 0; */
+
+  fill: var(--close-icon-color);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+}
+.close-link {
+}
+
 /* Первичный цвет текста #212121 */
 /* Вторичный цвет текста #757575 */
 /* Белый цвет текста #FFFFFF */
 /* Синие элементы текста и лого #2196F3 */
 /* Цвета фонов секций 
 #2F303A #E5E5E5 #F5F4FA */
+
+/* a { */
+/* position: relative; */
+/* color: #00a650; задаём цвет ссылки */
+/* cursor: pointer; */
+/* line-height: 4px; задаём высоту строки */
+/* border-radius: 2px; */
+/* text-decoration: none; убираем подчёркивание */
+/* } */
+/* a:after { */
+/* display: block; */
+/* position: absolute; */
+/* left: 0; изменить на right:0;, чтобы изменить направление подчёркивания */
+/* width: 0; задаём длинну линии до наведения курсора */
+/* height: 2px; задаём ширину линии */
+/* background-color: #00a650; задаём цвет линии */
+/* content: ""; */
+/* transition: width 0.3s ease-out; задаём время анимации */
+/* } */
+
+/* a:hover:after, */
+/* a:focus:after { */
+/* width: 100%; устанавливаем значение 100% чтобы ссылка подчёркивалась полностью */
+/* } */
