@@ -114,6 +114,32 @@ button {
   margin-left: 50px;
 }
 
+.link {
+  position: relative;
+  /* outline: 1px solid black; */
+  padding: 32 0;
+  color: currentColor;
+}
+
+.link::after {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 4px;
+  background-color: var(--accent-color);
+  border-radius: 2px;
+
+  opacity: 0;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.link:hover::after {
+  opacity: 1;
+}
+
 .site-nav .link {
   display: block;
   padding-top: 32px;
@@ -124,6 +150,8 @@ button {
   line-height: 1.14;
   letter-spacing: 0.02em;
   color: var(--primary-text-color);
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .site-nav .link:hover,
@@ -165,6 +193,9 @@ button {
   justify-content: center;
   fill: var(--secondory-text-color);
   padding: 32px 0px;
+
+  transition: color fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contact + .contact {
@@ -440,6 +471,9 @@ button {
   align-items: center;
   justify-content: center;
   fill: var(--first-social-color);
+
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-icon {
@@ -488,6 +522,9 @@ button {
   border-radius: 4px;
   border: 1px solid var(--box-klients-color);
   fill: var(--box-klients-color);
+
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .clients-link {
@@ -542,6 +579,8 @@ button {
   line-height: 1.71;
   letter-spacing: 0.03em;
   color: var(--text-title-color);
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-contact {
@@ -553,6 +592,8 @@ button {
   line-height: 1.71;
   letter-spacing: 0.03em;
   color: var(--text-title-color);
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .address-list .footer-address:focus,
@@ -601,6 +642,9 @@ button {
   justify-content: center;
   fill: var(--secondary-social-color);
   background-color: var(--footer-social-color);
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .aside-icon {
@@ -613,7 +657,8 @@ button {
   background-color: var(--background-social-color);
 }
 
-.aside-link:hover .aside-icon {
+.aside-link:hover .aside-icon,
+.aside-link:focus .aside-icon {
   fill: var(--secondary-social-color);
 }
 
@@ -643,6 +688,8 @@ button {
   display: flex;
   justify-content: center;
   margin-bottom: 50px;
+
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .button-items .button-item + .button-item {
@@ -658,6 +705,9 @@ button {
   line-height: 1.6;
   text-align: center;
   letter-spacing: 0.03em;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .button.primery {
@@ -688,6 +738,8 @@ button {
   border: 1px solid var(--box-project-color);
   margin-right: 30px;
   margin-bottom: 30px;
+
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .project-item:hover {
@@ -799,43 +851,10 @@ button {
 }
 
 .close-link {
-  display: flex;
+  display: inline-flex;
   width: 18px;
   align-items: flex-end;
   fill: var(--close-icon-color);
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
 }
-.close-link {
-}
-
-/* Первичный цвет текста #212121 */
-/* Вторичный цвет текста #757575 */
-/* Белый цвет текста #FFFFFF */
-/* Синие элементы текста и лого #2196F3 */
-/* Цвета фонов секций 
-#2F303A #E5E5E5 #F5F4FA */
-
-/* a { */
-/* position: relative; */
-/* color: #00a650; задаём цвет ссылки */
-/* cursor: pointer; */
-/* line-height: 4px; задаём высоту строки */
-/* border-radius: 2px; */
-/* text-decoration: none; убираем подчёркивание */
-/* } */
-/* a:after { */
-/* display: block; */
-/* position: absolute; */
-/* left: 0; изменить на right:0;, чтобы изменить направление подчёркивания */
-/* width: 0; задаём длинну линии до наведения курсора */
-/* height: 2px; задаём ширину линии */
-/* background-color: #00a650; задаём цвет линии */
-/* content: ""; */
-/* transition: width 0.3s ease-out; задаём время анимации */
-/* } */
-
-/* a:hover:after, */
-/* a:focus:after { */
-/* width: 100%; устанавливаем значение 100% чтобы ссылка подчёркивалась полностью */
-/* } */
