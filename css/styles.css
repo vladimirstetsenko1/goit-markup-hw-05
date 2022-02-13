@@ -800,12 +800,8 @@ button {
 
 .close-link {
   display: flex;
-  align-items: center;
-  justify-content: center;
   width: 18px;
-  /* top: 100%; */
-  /* left: 0; */
-
+  align-items: flex-end;
   fill: var(--close-icon-color);
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
